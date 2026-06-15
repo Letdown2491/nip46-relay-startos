@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="icon.svg" alt="NIP-46 Relay Logo" width="21%">
+  <img src="logo.svg" alt="NIP-46 Relay Logo" width="21%">
 </p>
 
 # NIP-46 Relay on StartOS

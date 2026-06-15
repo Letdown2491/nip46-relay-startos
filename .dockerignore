@@ -20,7 +20,7 @@ docker-images
 # Repo docs and assets
 *.md
 assets
-icon.svg
+logo.svg
 icon.webp
 screenshot.png
 LICENSE
