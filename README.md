@@ -18,6 +18,12 @@ This repository wraps the upstream relay into an installable `.s9pk` for
 **StartOS 0.4** using the [`@start9labs/start-sdk`](https://www.npmjs.com/package/@start9labs/start-sdk)
 TypeScript SDK.
 
+## Screenshot
+
+<p align="center">
+  <img src="screenshot.png" alt="The NIP-46 Relay landing page showing connection details and relay info" width="70%">
+</p>
+
 ## How it's packaged
 
 - **Image** is built from source: the [`Dockerfile`](Dockerfile) clones the

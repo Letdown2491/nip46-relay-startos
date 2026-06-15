@@ -23,6 +23,12 @@ const inputSpec = InputSpec.of({
     required: false,
     default: null,
     placeholder: 'wss://nip46.example.com',
+    patterns: [
+      {
+        regex: '^wss?://\\S+$',
+        description: 'Must be a ws:// or wss:// URL.',
+      },
+    ],
   }),
   relayPubkey: Value.text({
     name: 'Operator Pubkey',
@@ -30,6 +36,12 @@ const inputSpec = InputSpec.of({
       "Operator's Nostr pubkey in hex. NIP-11's preferred contact method. Leave blank to omit.",
     required: false,
     default: null,
+    patterns: [
+      {
+        regex: '^[0-9a-fA-F]{64}$',
+        description: 'Must be a 64-character hex public key (not an npub).',
+      },
+    ],
   }),
   relayContact: Value.text({
     name: 'Contact',
@@ -43,12 +55,24 @@ const inputSpec = InputSpec.of({
     description: 'URL to an icon image, advertised in NIP-11.',
     required: false,
     default: null,
+    patterns: [
+      {
+        regex: '^https?://\\S+$',
+        description: 'Must be an http:// or https:// URL.',
+      },
+    ],
   }),
   relayBanner: Value.text({
     name: 'Banner URL',
     description: 'URL to a banner image, advertised in NIP-11.',
     required: false,
     default: null,
+    patterns: [
+      {
+        regex: '^https?://\\S+$',
+        description: 'Must be an http:// or https:// URL.',
+      },
+    ],
   }),
   storageBackend: Value.select({
     name: 'Storage Backend',

@@ -22,9 +22,12 @@ export const storeFile = FileHelper.json(
     relayIcon: z.string().catch(''),
     relayBanner: z.string().catch(''),
     storageBackend: z.enum(['memory', 'badger']).catch('memory'),
-    keepInMinutes: z.number().int().nonnegative().catch(10),
-    acceptWindowInMinutes: z.number().int().nonnegative().catch(1),
-    rateLimitPerMinute: z.number().int().nonnegative().catch(100),
+    // These three mirror the Configure form's `min: 1`; a stored 0 (or any
+    // sub-minimum value) falls back to the default rather than the relay.
+    keepInMinutes: z.number().int().min(1).catch(10),
+    acceptWindowInMinutes: z.number().int().min(1).catch(1),
+    rateLimitPerMinute: z.number().int().min(1).catch(100),
+    // maxMemoryMb intentionally allows 0 — it means "auto-detect".
     maxMemoryMb: z.number().int().nonnegative().catch(0),
   }),
 )

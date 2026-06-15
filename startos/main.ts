@@ -52,8 +52,13 @@ export const main = sdk.setupMain(async ({ effects }) => {
     },
     ready: {
       display: 'Relay',
+      // Fetch the relay's own HTTP listener (which serves the landing page and
+      // the NIP-46 ws endpoint on the same port). This runs inside the
+      // subcontainer's network namespace, so 127.0.0.1 reaches the relay, and
+      // it proves the HTTP server actually responds — not just that the port is
+      // bound, which a wedged process could satisfy.
       fn: () =>
-        sdk.healthCheck.checkPortListening(effects, relayPort, {
+        sdk.healthCheck.checkWebUrl(effects, `http://127.0.0.1:${relayPort}`, {
           successMessage: 'The relay is accepting connections',
           errorMessage: 'The relay is not reachable',
         }),

@@ -1,2 +1,26 @@
+# The Dockerfile COPYs nothing from this context — it git clones the upstream
+# relay source inside the image. So nothing here is needed for the build;
+# everything below is excluded only to keep the build context small and fast.
 .git
 .gitmodules
+.github
+.claude
+.vscode
+.idea
+.DS_Store
+
+# Node / SDK tooling and build output (used to pack the .s9pk, not to build the image)
+node_modules
+javascript
+startos
+ncc-cache
+docker-images
+*.s9pk
+
+# Repo docs and assets
+*.md
+assets
+icon.svg
+icon.webp
+screenshot.png
+LICENSE
